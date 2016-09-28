@@ -1,8 +1,8 @@
 {
   "name": "js-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "js.storage.js",
-  "description": "JS Storage is a plugin that simplify access to storages (HTML5) & cookies, add namespace storage functionality and provide compatiblity for old browsers with cookies!",
+  "description": "Plugin that simplify access to storages (HTML5) & cookies, add namespace storage and provide compatiblity for old browsers",
   "keywords": [
     "storage",
     "html5",
@@ -29,7 +29,7 @@
   },
   "ignore": [
     "Jasmine",
-    "/*.md",
+    "gulp.js",
     "/*.txt",
     "/*.json"
   ]
