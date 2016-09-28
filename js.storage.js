@@ -520,6 +520,16 @@
             removeItem: function (n) {
                 return Cookies.remove(this._prefix + n, {path: this._path});
             },
+            clear: function () {
+                var cookies = Cookies.get();
+                for (var key in cookies) {
+                    if (cookies.hasOwnProperty(key) && key != '') {
+                        if (!this._prefix && key.indexOf(cookie_local_prefix) === -1 && key.indexOf(cookie_session_prefix) === -1 || this._prefix && key.indexOf(this._prefix) === 0) {
+                            Cookies.remove(key);
+                        }
+                    }
+                }
+            },
             setExpires: function (e) {
                 this._expires = e;
                 return this;
