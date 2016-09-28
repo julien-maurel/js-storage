@@ -9,7 +9,7 @@
  * Project home:
  * https://github.com/julien-maurel/js-storage
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  */
 (function (factory) {
     var registeredInModuleLoader = false;

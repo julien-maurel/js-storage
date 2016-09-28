@@ -1,6 +1,6 @@
 {
   "name": "js-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Julien Maurel",
     "url": "https://github.com/julien-maurel"
@@ -28,8 +28,5 @@
   "homepage": "https://github.com/julien-maurel/js-storage",
   "bugs": "https://github.com/julien-maurel/js-storage/issues",
   "repository": "https://github.com/julien-maurel/js-storage",
-  "main": "./js.storage.js",
-  "files": [
-    "js.storage.js"
-  ]
+  "main": "./js.storage.js"
 }
