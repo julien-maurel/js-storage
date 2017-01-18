@@ -9,7 +9,7 @@
  * Project home:
  * https://github.com/julien-maurel/js-storage
  *
- * Version: 1.0.1
+ * Version: 1.0.2
  */
 (function (factory) {
     var registeredInModuleLoader = false;
@@ -246,7 +246,7 @@
                     if (v.hasOwnProperty(i) && !(
                             (_isPlainObject(v[i]) && _isEmptyObject(v[i])) ||
                             (Array.isArray(v[i]) && !v[i].length) ||
-                            (!v[i])
+                            (typeof v[i] !== 'boolean' && !v[i])
                         )) {
                         return false;
                     }

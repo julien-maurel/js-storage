@@ -333,6 +333,7 @@ describe("JS Storage", function () {
                 storage.set("item4", [1]);
                 storage.set("item5", {});
                 storage.set("item6", {"prop": "value"});
+                storage.set("item7", false);
 
                 expect(storage.isEmpty("item1")).toBeFalsy();
                 expect(storage.isEmpty("item2")).toBeTruthy();
@@ -340,6 +341,7 @@ describe("JS Storage", function () {
                 expect(storage.isEmpty("item4")).toBeFalsy();
                 expect(storage.isEmpty("item5")).toBeTruthy();
                 expect(storage.isEmpty("item6")).toBeFalsy();
+                expect(storage.isEmpty("item7")).toBeFalsy();
             });
 
             it("'isEmpty' returns true if item in storage is empty (by chain arguments)", function () {

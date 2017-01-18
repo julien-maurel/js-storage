@@ -1,3 +1,6 @@
+1.0.2
+ Fix isEmpty with false boolean
+
 1.0.1
  Fix package/bower.json
 
