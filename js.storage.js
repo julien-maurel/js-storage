@@ -441,29 +441,37 @@
         alwaysUseJson: false,
         // Get items. If no parameters and storage have a namespace, return all namespace
         get: function () {
-            return this._callMethod(_get, arguments);
+            if (storage_available) {
+                return this._callMethod(_get, arguments);
+            } else {
+                return null;
+            }
         },
         // Set items
         set: function () {
             var l = arguments.length, a = arguments, a0 = a[0];
-            if (l < 1 || !_isPlainObject(a0) && l < 2) {
-                throw new Error('Minimum 2 arguments must be given or first parameter must be an object');
-            }
-            // If first argument is an object and storage is a namespace storage, set values individually
-            if (_isPlainObject(a0) && this._ns) {
-                for (var i in a0) {
-                    if (a0.hasOwnProperty(i)) {
-                        this._callMethod(_set, [i, a0[i]]);
+            if (storage_available) {
+                if (l < 1 || !_isPlainObject(a0) && l < 2) {
+                    throw new Error('Minimum 2 arguments must be given or first parameter must be an object');
+                }
+                // If first argument is an object and storage is a namespace storage, set values individually
+                if (_isPlainObject(a0) && this._ns) {
+                    for (var i in a0) {
+                        if (a0.hasOwnProperty(i)) {
+                            this._callMethod(_set, [i, a0[i]]);
+                        }
+                    }
+                    return a0;
+                } else {
+                    var r = this._callMethod(_set, a);
+                    if (this._ns) {
+                        return r[a0.split('.')[0]];
+                    } else {
+                        return r;
                     }
                 }
-                return a0;
             } else {
-                var r = this._callMethod(_set, a);
-                if (this._ns) {
-                    return r[a0.split('.')[0]];
-                } else {
-                    return r;
-                }
+                return null;
             }
         },
         // Delete items
@@ -471,31 +479,51 @@
             if (arguments.length < 1) {
                 throw new Error('Minimum 1 argument must be given');
             }
-            return this._callMethod(_remove, arguments);
+            if (storage_available) {
+                return this._callMethod(_remove, arguments);
+            } else {
+                return null;
+            }
         },
         // Delete all items
         removeAll: function (reinit_ns) {
-            if (this._ns) {
-                this._callMethod(_set, [{}]);
-                return true;
+            if (storage_available) {
+                if (this._ns) {
+                    this._callMethod(_set, [{}]);
+                    return true;
+                } else {
+                    return this._callMethod(_removeAll, [reinit_ns]);
+                }
             } else {
-                return this._callMethod(_removeAll, [reinit_ns]);
+                return null;
             }
         },
         // Items empty
         isEmpty: function () {
-            return this._callMethod(_isEmpty, arguments);
+            if (storage_available) {
+                return this._callMethod(_isEmpty, arguments);
+            } else {
+                return null;
+            }
         },
         // Items exists
         isSet: function () {
             if (arguments.length < 1) {
                 throw new Error('Minimum 1 argument must be given');
             }
-            return this._callMethod(_isSet, arguments);
+            if (storage_available) {
+                return this._callMethod(_isSet, arguments);
+            } else {
+                return null;
+            }
         },
         // Get keys of items
         keys: function () {
-            return this._callMethod(_keys, arguments);
+            if (storage_available) {
+                return this._callMethod(_keys, arguments);
+            } else {
+                return null;
+            }
         }
     };
 
