@@ -1,3 +1,5 @@
+1.0.3
+ Fix issue when native storage is not available neither js-cookies
 1.0.2
  Fix isEmpty with false boolean
 
