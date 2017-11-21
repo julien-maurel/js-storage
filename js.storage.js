@@ -9,7 +9,7 @@
  * Project home:
  * https://github.com/julien-maurel/js-storage
  *
- * Version: 1.0.3
+ * Version: 1.0.4
  */
 (function (factory) {
     var registeredInModuleLoader = false;
@@ -418,7 +418,7 @@
 
     // Check if storages are natively available on browser and check is js-cookie is present
     var storage_available = _testStorage('localStorage');
-    var cookies_available = typeof Cookies !== 'undefined';*
+    var cookies_available = typeof Cookies !== 'undefined';
 
     // Namespace object
     var storage = {
