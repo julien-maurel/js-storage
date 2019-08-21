@@ -12,6 +12,7 @@ Functionalities:
 
 Storages
 --------
+
 #### Local storage
     Storages.localStorage
 
@@ -22,6 +23,7 @@ Storages
     Storages.cookieStorage
 
 #### Namespace storage
+
     ns=Storages.initNamespaceStorage('ns_name');
     ns.localStorage // Namespace in localStorage
     ns.sessionStorage // Namespace in sessionStorage
@@ -140,6 +142,16 @@ Sets domain for cookies (default value is null; only cookies set after setDomain
 This method return the storage object, so you can:
 
     storage.setDomain('www.ndd.com').set('foo','value') // Set domain to www.ndd.com and set a new cookie
+
+### `setSecure()`
+Only on cookieStorage.  
+Sets secure flag for cookies (default value is false; only cookies set after setSecure() call will be affected).
+
+    storage.setSecure(true) // Set secure flag to true
+
+This method return the storage object, so you can:
+
+    storage.setSecure(true).set('foo','value') // Set secure flag to true and set a new cookie
 
 ### `setConf()`
 Only on cookieStorage.  

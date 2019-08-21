@@ -1,6 +1,6 @@
 {
   "name": "js-storage",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "main": "js.storage.js",
   "description": "Plugin that simplify access to storages (HTML5) & cookies, add namespace storage and provide compatiblity for old browsers",
   "keywords": [
